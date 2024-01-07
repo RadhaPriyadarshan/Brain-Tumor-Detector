@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #05192D; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    
+    <div class="container">
+        <h1 class="heading" style="font-family: 'Montserrat', sans-serif; color: #fff;">AI Brain Tumor Detector</h1>
+        <h2 style="color: #fff;">Upload MRI Scan</h2>
+        <form id="upload-form" action="/predict" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="file" name="file" accept="image/*" id="file-input" class="upload-file visually-hidden" onchange="displayFileName()">
+            <label for="file-input" class="custom-upload-btn" id="file-label">Choose File</label>
+            <button class="upload-btn" type="submit">Upload</button>
+            <button class="clear-btn" type="button" onclick="clearResults()">Clear</button>
+        </form>
+        <div id="error-message" style="display: none; color: red; margin-bottom: 10px;">Please select a file to upload.</div>
+        <div id="result-box">
+            {% if prediction_result %}
+                <div class="result">
+                    <h2 style="color: #00A67D;">{{ prediction_result }}</h2>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+   
+    <script>
+        function displayFileName() {
+            const fileInput = document.getElementById('file-input');
+            const fileLabel = document.getElementById('file-label');
+            if (fileInput.files.length > 0) {
+                fileLabel.textContent = fileInput.files[0].name;
+            } else {
+                fileLabel.textContent = 'Choose File';
+            }
+        }
+
+        function clearResults() {
+            const fileInput = document.getElementById('file-input');
+            const fileLabel = document.getElementById('file-label');
+            const resultBox = document.getElementById('result-box');
+            fileInput.value = ''; // Clear the file input value
+            fileLabel.textContent = 'Choose File'; // Reset the file label text
+            resultBox.innerHTML = ''; // Clear the result box content
+        }
+
+        function validateForm() {
+            const fileInput = document.getElementById('file-input');
+            const errorMessage = document.getElementById('error-message');
+
+            if (fileInput.files.length === 0) {
+                errorMessage.style.display = 'block'; // Display the error message
+                return false; // Prevent form submission
+            }
+
+            errorMessage.style.display = 'none'; // Hide the error message if a file is selected
+            return true; // Allow form submission if a file is selected
+        }
+    </script>
+</body>
+</html>

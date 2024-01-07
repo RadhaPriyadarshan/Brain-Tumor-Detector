@@ -1,0 +1,104 @@
+/* index.css */
+.container {
+    text-align: center;
+    background-color: #05192D;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.upload-file {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #fff; /* Set text color for the file input */
+}
+
+.upload-btn, .clear-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn {
+    background-color: #4CAF50; /* White */
+    color: #ffffff; /* Change text color to dark to contrast with the white button */
+}
+
+.upload-btn:hover, .clear-btn:hover {
+    opacity: 0.8;
+}
+
+.clear-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-left: 10px;
+}
+
+#result-box {
+    margin-top: 40px;
+    width: 50%;
+    margin: 20px auto;
+    
+}
+
+.result {
+    background-color: #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.result h2 {
+    color: #4CAF50; /* Result text color */
+}
+
+/* index.css */
+/* ... (existing styles) */
+
+.custom-upload-btn {
+    background-color: #fff; /* White */
+    color: #343541; /* Dark text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #fff; /* Border to mimic button */
+    display: inline-block;
+}
+
+.custom-upload-btn:hover {
+    opacity: 0.8;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.heading {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    display: inline-block;
+}
+
